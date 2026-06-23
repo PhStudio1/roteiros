@@ -1,0 +1,1254 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roteiros YouTube e TikTok</title>
+  <style>
+    :root {
+      --bg: #f4f3ef;
+      --surface: #fffdf9;
+      --surface-strong: #ffffff;
+      --ink: #1f2528;
+      --muted: #67706e;
+      --line: #d9ded8;
+      --primary: #116f64;
+      --primary-dark: #0b584f;
+      --soft: #e7f2ef;
+      --sky: #eaf1f7;
+      --rose: #fff0ec;
+      --gold: #fff6df;
+      --danger: #ad3434;
+      --warning: #8a5a08;
+      --shadow: 0 18px 44px rgba(33, 39, 36, 0.12);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, rgba(17, 111, 100, 0.1), transparent 36%),
+        linear-gradient(315deg, rgba(122, 84, 184, 0.09), transparent 34%),
+        var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 0;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    .app {
+      width: min(1240px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 22px 0 36px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0 22px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.05;
+    }
+
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    p {
+      line-height: 1.48;
+    }
+
+    .subtitle {
+      margin: 8px 0 0;
+      color: var(--muted);
+      max-width: 650px;
+      font-size: 15px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 9px 20px rgba(17, 111, 100, 0.2);
+      transition: transform 150ms ease, border-color 150ms ease, background 150ms ease, color 150ms ease;
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn.secondary {
+      background: var(--surface-strong);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .btn.secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary-dark);
+    }
+
+    .google-mark {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 auto;
+    }
+
+    .btn.danger {
+      background: #fff3f1;
+      color: var(--danger);
+      border: 1px solid #efc8c3;
+      box-shadow: none;
+    }
+
+    .auth-wrap {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .auth-card {
+      width: min(980px, 100%);
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 0;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .auth-intro,
+    .auth-form {
+      padding: clamp(24px, 4vw, 44px);
+    }
+
+    .auth-intro {
+      background:
+        linear-gradient(160deg, rgba(17, 111, 100, 0.12), transparent 45%),
+        #fbf8f0;
+      border-right: 1px solid var(--line);
+    }
+
+    .auth-intro p {
+      max-width: 480px;
+    }
+
+    .auth-features {
+      display: grid;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .auth-feature {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      color: #39413f;
+      font-weight: 700;
+    }
+
+    .auth-feature span {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: var(--surface-strong);
+      color: var(--primary-dark);
+      border: 1px solid rgba(17, 111, 100, 0.18);
+    }
+
+    .auth-note {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(31, 37, 40, 0.09);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .auth-form {
+      display: grid;
+      align-content: center;
+      gap: 16px;
+    }
+
+    .auth-form .btn {
+      width: 100%;
+      min-height: 52px;
+      font-size: 16px;
+      justify-content: center;
+    }
+
+    .notice {
+      padding: 12px 14px;
+      border-radius: var(--radius);
+      background: #fff7e8;
+      color: var(--warning);
+      border: 1px solid #efd39c;
+      line-height: 1.45;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: 330px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .panel {
+      background: rgba(255, 253, 249, 0.94);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 16px;
+      overflow: hidden;
+    }
+
+    .tabs {
+      display: grid;
+      gap: 8px;
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .tab-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .tab {
+      min-height: 38px;
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid transparent;
+      font-weight: 700;
+    }
+
+    .tab.active {
+      background: var(--soft);
+      color: var(--primary-dark);
+      border-color: rgba(13, 118, 110, 0.24);
+    }
+
+    .list-tools {
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .search {
+      width: 100%;
+      min-height: 40px;
+      padding: 10px 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--surface-strong);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(17, 111, 100, 0.12);
+    }
+
+    .script-list {
+      display: grid;
+      gap: 8px;
+      max-height: calc(100vh - 278px);
+      min-height: 220px;
+      overflow: auto;
+      padding: 14px;
+    }
+
+    .script-card {
+      width: 100%;
+      padding: 13px;
+      border-radius: var(--radius);
+      text-align: left;
+      border: 1px solid var(--line);
+      background: var(--surface-strong);
+      color: var(--ink);
+      transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+    }
+
+    .script-card:hover {
+      border-color: rgba(13, 118, 110, 0.48);
+      transform: translateY(-1px);
+    }
+
+    .script-card.active {
+      border-color: var(--primary);
+      box-shadow: inset 4px 0 0 var(--primary);
+    }
+
+    .script-title {
+      display: block;
+      font-weight: 800;
+      line-height: 1.25;
+      word-break: break-word;
+    }
+
+    .script-meta {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .empty {
+      display: grid;
+      place-items: center;
+      min-height: 220px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.45;
+      padding: 18px;
+    }
+
+    .editor {
+      min-height: 680px;
+      padding: 20px;
+    }
+
+    .editor-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: start;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .title-input {
+      width: 100%;
+      padding: 10px 0;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      color: var(--ink);
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 800;
+      outline: none;
+    }
+
+    .title-input:focus {
+      border-color: var(--primary);
+    }
+
+    .editor-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #f2eee4;
+      color: #4d4841;
+      font-weight: 700;
+    }
+
+    .badge.youtube {
+      background: var(--rose);
+      color: #a5231f;
+    }
+
+    .badge.tiktok {
+      background: var(--sky);
+      color: #0d6571;
+    }
+
+    .editor-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .editor-side {
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+    }
+
+    .script-meter {
+      width: min(280px, 100%);
+      padding: 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 8px 18px rgba(31, 37, 40, 0.05);
+    }
+
+    .meter-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .meter-stat {
+      padding: 8px;
+      border-radius: var(--radius);
+      background: var(--soft);
+    }
+
+    .meter-stat strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1.1;
+      color: var(--primary-dark);
+    }
+
+    .meter-stat span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .meter-sections {
+      display: grid;
+      gap: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .meter-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .meter-line b {
+      color: #39413f;
+      font-weight: 800;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .field {
+      background: var(--surface-strong);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(31, 37, 40, 0.04);
+    }
+
+    .field label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 13px 15px;
+      background: #fbfaf5;
+      border-bottom: 1px solid var(--line);
+      color: #37332e;
+      font-weight: 800;
+    }
+
+    .field small {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .section-number {
+      display: inline-grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    textarea {
+      display: block;
+      width: 100%;
+      min-height: 132px;
+      resize: vertical;
+      border: 0;
+      outline: none;
+      padding: 15px;
+      background: var(--surface-strong);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    textarea:focus {
+      box-shadow: inset 0 0 0 2px rgba(13, 118, 110, 0.22);
+    }
+
+    .notes textarea {
+      min-height: 90px;
+    }
+
+    .toast {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      padding: 12px 14px;
+      border-radius: var(--radius);
+      background: #202124;
+      color: #fff;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 180ms ease, transform 180ms ease;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 880px) {
+      .topbar,
+      .editor-head {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .auth-card {
+        grid-template-columns: 1fr;
+      }
+
+      .auth-intro {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .actions,
+      .editor-actions {
+        justify-content: stretch;
+      }
+
+      .editor-side {
+        justify-items: stretch;
+      }
+
+      .script-meter {
+        width: 100%;
+      }
+
+      .btn {
+        flex: 1 1 auto;
+      }
+
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .script-list {
+        max-height: 280px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .app {
+        width: min(100% - 18px, 1240px);
+        padding-top: 12px;
+      }
+
+      .auth-wrap {
+        padding: 10px;
+      }
+
+      .auth-intro,
+      .auth-form {
+        padding: 22px;
+      }
+
+      .tab-row {
+        grid-template-columns: 1fr;
+      }
+
+      .editor {
+        padding: 12px;
+      }
+
+      .field label {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .section-number {
+        margin-bottom: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="auth-wrap" id="authScreen">
+    <div class="auth-card">
+      <div class="auth-intro">
+        <h1>Roteiros</h1>
+        <p>Um espaço simples para criar, guardar e revisar roteiros de YouTube e TikTok com tudo salvo na sua conta.</p>
+        <div class="notice" id="configNotice">
+          Configure o Firebase no arquivo antes de usar o login.
+        </div>
+        <div class="auth-features">
+          <div class="auth-feature"><span>1</span> Roteiros separados por YouTube e TikTok</div>
+          <div class="auth-feature"><span>2</span> Em processo e finalizados no mesmo lugar</div>
+          <div class="auth-feature"><span>3</span> Acesso em qualquer dispositivo com Google</div>
+        </div>
+        <p class="auth-note">Seus textos ficam ligados ao seu login e sincronizam pelo Firebase.</p>
+      </div>
+
+      <div class="auth-form" id="authForm">
+        <h2>Acessar conta</h2>
+        <p class="subtitle">Entre com o Google para abrir seus roteiros salvos.</p>
+        <button class="btn secondary" id="googleLoginButton" type="button">
+          <svg class="google-mark" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.29h6.47c-.28 1.5-1.13 2.77-2.41 3.62v2.96h3.9c2.28-2.1 3.53-5.19 3.53-8.6z"/>
+            <path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.95-2.9l-3.9-2.96c-1.08.72-2.46 1.15-4.05 1.15-3.11 0-5.75-2.1-6.69-4.93H1.29v3.05C3.27 21.33 7.33 24 12 24z"/>
+            <path fill="#FBBC05" d="M5.31 14.36c-.24-.72-.38-1.49-.38-2.36s.14-1.64.38-2.36V6.59H1.29A11.94 11.94 0 0 0 0 12c0 1.94.46 3.78 1.29 5.41l4.02-3.05z"/>
+            <path fill="#EA4335" d="M12 4.71c1.76 0 3.34.61 4.59 1.8l3.45-3.45C17.95 1.11 15.24 0 12 0 7.33 0 3.27 2.67 1.29 6.59l4.02 3.05C6.25 6.81 8.89 4.71 12 4.71z"/>
+          </svg>
+          Entrar com Google
+        </button>
+        <p class="subtitle" id="authMessage"></p>
+      </div>
+    </div>
+  </section>
+
+  <main class="app hidden" id="appScreen">
+    <section class="topbar">
+      <div>
+        <h1>Roteiros</h1>
+        <p class="subtitle">Organize ideias de YouTube e TikTok, separe o que ainda está em processo e guarde os roteiros concluídos.</p>
+        <p class="subtitle" id="userLabel"></p>
+      </div>
+      <div class="actions">
+        <button class="btn" id="newScript" type="button">+ Novo roteiro</button>
+        <button class="btn secondary" id="copyScript" type="button">Copiar roteiro</button>
+        <button class="btn secondary" id="logoutButton" type="button">Sair</button>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <aside class="panel sidebar" aria-label="Lista de roteiros">
+        <div class="tabs">
+          <div class="tab-row" role="tablist" aria-label="Tipo de roteiro">
+            <button class="tab active" type="button" data-type="youtube">YouTube</button>
+            <button class="tab" type="button" data-type="tiktok">TikTok</button>
+          </div>
+          <div class="tab-row" role="tablist" aria-label="Status do roteiro">
+            <button class="tab active" type="button" data-status="processo">Em processo</button>
+            <button class="tab" type="button" data-status="finalizado">Finalizados</button>
+          </div>
+        </div>
+        <div class="list-tools">
+          <input class="search" id="search" type="search" placeholder="Buscar roteiro">
+        </div>
+        <div class="script-list" id="scriptList"></div>
+      </aside>
+
+      <section class="panel editor" id="editor" aria-label="Editor de roteiro"></section>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+    import {
+      getAuth,
+      onAuthStateChanged,
+      GoogleAuthProvider,
+      signInWithPopup,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+    import {
+      getFirestore,
+      collection,
+      doc,
+      setDoc,
+      deleteDoc,
+      onSnapshot,
+      serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCUexa3XM44_KThXDKjbAkuns9QGtQTyas",
+      authDomain: "roteiros-37c33.firebaseapp.com",
+      projectId: "roteiros-37c33",
+      storageBucket: "roteiros-37c33.firebasestorage.app",
+      messagingSenderId: "45620188702",
+      appId: "1:45620188702:web:5cdca822ce3c13ecd3800f",
+      measurementId: "G-1RDLJJHJL1"
+    };
+
+    const sections = [
+      ["gancho", "Gancho", "Abertura forte para prender a atenção."],
+      ["desenvolvimento", "Desenvolvimento", "Explique a ideia principal com clareza."],
+      ["exemplo", "Exemplo", "Mostre uma situação, história ou prova."],
+      ["transicao", "Transição", "Conecte uma parte na próxima sem quebrar o ritmo."],
+      ["cta", "CTA", "Convite para comentar, seguir, curtir ou assistir outro vídeo."],
+      ["fechamento", "Fechamento", "Feche a mensagem com impacto."]
+    ];
+
+    let auth;
+    let db;
+    let googleProvider;
+    let unsubscribeScripts = null;
+    let currentUser = null;
+    let configReady = !Object.values(firebaseConfig).some((value) => String(value).includes("COLE_AQUI"));
+
+    const state = {
+      scripts: [],
+      activeType: "youtube",
+      activeStatus: "processo",
+      activeId: null,
+      query: ""
+    };
+
+    const authScreen = document.getElementById("authScreen");
+    const appScreen = document.getElementById("appScreen");
+    const authForm = document.getElementById("authForm");
+    const authMessage = document.getElementById("authMessage");
+    const configNotice = document.getElementById("configNotice");
+    const scriptList = document.getElementById("scriptList");
+    const editor = document.getElementById("editor");
+    const search = document.getElementById("search");
+    const toast = document.getElementById("toast");
+    const userLabel = document.getElementById("userLabel");
+
+    if (configReady) {
+      const app = initializeApp(firebaseConfig);
+      auth = getAuth(app);
+      db = getFirestore(app);
+      googleProvider = new GoogleAuthProvider();
+      configNotice.classList.add("hidden");
+
+      onAuthStateChanged(auth, (user) => {
+        currentUser = user;
+        if (user) {
+          openApp(user);
+        } else {
+          closeApp();
+        }
+      });
+    } else {
+      authMessage.textContent = "Depois de colar a configuração do Firebase, o login será ativado.";
+      authForm.querySelectorAll("input, button").forEach((item) => {
+        item.disabled = true;
+      });
+    }
+
+    function openApp(user) {
+      authScreen.classList.add("hidden");
+      appScreen.classList.remove("hidden");
+      userLabel.textContent = `Conta conectada: ${user.email}`;
+      listenScripts();
+    }
+
+    function closeApp() {
+      if (unsubscribeScripts) {
+        unsubscribeScripts();
+        unsubscribeScripts = null;
+      }
+      currentUser = null;
+      state.scripts = [];
+      state.activeId = null;
+      authScreen.classList.remove("hidden");
+      appScreen.classList.add("hidden");
+      render();
+    }
+
+    function listenScripts() {
+      if (!currentUser) return;
+      if (unsubscribeScripts) unsubscribeScripts();
+
+      const scriptsRef = collection(db, "users", currentUser.uid, "scripts");
+      unsubscribeScripts = onSnapshot(scriptsRef, (snapshot) => {
+        state.scripts = snapshot.docs.map((item) => ({ id: item.id, ...item.data() }));
+        ensureFirstScript();
+        if (isWriting()) {
+          renderTabs();
+          search.value = state.query;
+          renderList(false);
+        } else {
+          render();
+        }
+      }, () => {
+        showToast("Nao foi possivel carregar seus roteiros.");
+      });
+    }
+
+    async function ensureFirstScript() {
+      if (state.scripts.length || !currentUser) return;
+      const first = makeScript("youtube", "processo");
+      first.title = "Meu primeiro roteiro";
+      await saveScript(first);
+      state.activeId = first.id;
+    }
+
+    function makeScript(type = state.activeType, status = state.activeStatus) {
+      return {
+        id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
+        type,
+        status,
+        title: "Novo roteiro",
+        notes: "",
+        updatedAt: new Date().toISOString(),
+        createdAt: new Date().toISOString(),
+        content: sections.reduce((all, section) => ({ ...all, [section[0]]: "" }), {})
+      };
+    }
+
+    function scriptDoc(id) {
+      return doc(db, "users", currentUser.uid, "scripts", id);
+    }
+
+    async function saveScript(script) {
+      if (!currentUser) return;
+      await setDoc(scriptDoc(script.id), {
+        ...script,
+        syncedAt: serverTimestamp()
+      }, { merge: true });
+    }
+
+    function currentScript() {
+      return state.scripts.find((script) => script.id === state.activeId) || null;
+    }
+
+    function filteredScripts() {
+      const query = state.query.trim().toLowerCase();
+      return state.scripts
+        .filter((script) => script.type === state.activeType && script.status === state.activeStatus)
+        .filter((script) => {
+          if (!query) return true;
+          const text = [script.title, script.notes, ...Object.values(script.content || {})].join(" ").toLowerCase();
+          return text.includes(query);
+        })
+        .sort((a, b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0));
+    }
+
+    function formatDate(date) {
+      if (!date) return "agora";
+      return new Intl.DateTimeFormat("pt-BR", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      }).format(new Date(date));
+    }
+
+    function setActive(id) {
+      state.activeId = id;
+      render();
+    }
+
+    async function updateScript(id, changes) {
+      const script = state.scripts.find((item) => item.id === id);
+      if (!script) return;
+
+      const updated = {
+        ...script,
+        ...changes,
+        updatedAt: new Date().toISOString()
+      };
+
+      state.scripts = state.scripts.map((item) => item.id === id ? updated : item);
+      await saveScript(updated);
+    }
+
+    function renderTabs() {
+      document.querySelectorAll("[data-type]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.type === state.activeType);
+      });
+      document.querySelectorAll("[data-status]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.status === state.activeStatus);
+      });
+    }
+
+    function renderList(shouldRenderEditor = true) {
+      const scripts = filteredScripts();
+
+      if (!scripts.some((script) => script.id === state.activeId)) {
+        state.activeId = scripts[0]?.id || null;
+      }
+
+      if (!scripts.length) {
+        scriptList.innerHTML = '<div class="empty"><div><strong>Nenhum roteiro aqui.</strong><br>Crie um novo ou troque as abas.</div></div>';
+        if (shouldRenderEditor) renderEditor();
+        return;
+      }
+
+      scriptList.innerHTML = scripts.map((script) => `
+        <button class="script-card ${script.id === state.activeId ? "active" : ""}" type="button" data-id="${script.id}">
+          <span class="script-title">${escapeHtml(script.title || "Sem titulo")}</span>
+          <span class="script-meta">Atualizado em ${formatDate(script.updatedAt)}</span>
+        </button>
+      `).join("");
+
+      scriptList.querySelectorAll("[data-id]").forEach((button) => {
+        button.addEventListener("click", () => setActive(button.dataset.id));
+      });
+
+      if (shouldRenderEditor) renderEditor();
+    }
+
+    function renderEditor() {
+      const script = currentScript();
+
+      if (!script) {
+        editor.innerHTML = `
+          <div class="empty">
+            <div>
+              <strong>Nenhum roteiro selecionado.</strong><br>
+              Crie um novo roteiro para começar.
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      const statusLabel = script.status === "processo" ? "Em processo" : "Finalizado";
+      const typeLabel = script.type === "youtube" ? "YouTube" : "TikTok";
+      const actionLabel = script.status === "processo" ? "Marcar finalizado" : "Voltar para processo";
+
+      editor.innerHTML = `
+        <div class="editor-head">
+          <div>
+            <input class="title-input" id="titleInput" value="${escapeAttribute(script.title)}" aria-label="Titulo do roteiro">
+            <div class="editor-meta">
+              <span class="badge ${script.type}">${typeLabel}</span>
+              <span class="badge">${statusLabel}</span>
+              <span>Atualizado em ${formatDate(script.updatedAt)}</span>
+            </div>
+          </div>
+          <div class="editor-side">
+            ${renderMeter(script)}
+            <div class="editor-actions">
+              <button class="btn secondary" id="moveScript" type="button">${actionLabel}</button>
+              <button class="btn danger" id="deleteScript" type="button">Excluir</button>
+            </div>
+          </div>
+        </div>
+        <div class="form-grid">
+          ${sections.map(([key, label, helper], index) => `
+            <div class="field">
+              <label for="${key}">
+                <span><span class="section-number">${index + 1}</span>${label}</span>
+                <small>${helper}</small>
+              </label>
+              <textarea id="${key}" data-section="${key}" placeholder="Escreva aqui...">${escapeHtml(script.content?.[key] || "")}</textarea>
+            </div>
+          `).join("")}
+          <div class="field notes">
+            <label for="notes">
+              <span>Observações</span>
+              <small>Ideias soltas, referências ou ajustes finais.</small>
+            </label>
+            <textarea id="notes" placeholder="Anotações extras...">${escapeHtml(script.notes || "")}</textarea>
+          </div>
+        </div>
+      `;
+
+      document.getElementById("titleInput").addEventListener("input", (event) => {
+        updateScript(script.id, { title: event.target.value });
+      });
+
+      document.querySelectorAll("[data-section]").forEach((field) => {
+        field.addEventListener("input", (event) => {
+          const fresh = currentScript();
+          const key = event.target.dataset.section;
+          updateScript(script.id, { content: { ...(fresh.content || {}), [key]: event.target.value } });
+          updateMeterFromFields();
+        });
+      });
+
+      document.getElementById("notes").addEventListener("input", (event) => {
+        updateScript(script.id, { notes: event.target.value });
+      });
+
+      document.getElementById("moveScript").addEventListener("click", async () => {
+        const nextStatus = script.status === "processo" ? "finalizado" : "processo";
+        state.activeStatus = nextStatus;
+        await updateScript(script.id, { status: nextStatus });
+        render();
+        showToast(nextStatus === "finalizado" ? "Roteiro movido para finalizados." : "Roteiro voltou para em processo.");
+      });
+
+      document.getElementById("deleteScript").addEventListener("click", async () => {
+        if (!confirm("Excluir este roteiro?")) return;
+        await deleteDoc(scriptDoc(script.id));
+        state.scripts = state.scripts.filter((item) => item.id !== script.id);
+        state.activeId = null;
+        render();
+        showToast("Roteiro excluido.");
+      });
+    }
+
+    function renderMeter(script) {
+      const metrics = calculateMetrics(script.content || {});
+      return `
+        <aside class="script-meter" aria-label="Resumo do tamanho do roteiro">
+          <div class="meter-top">
+            <div class="meter-stat">
+              <strong data-meter-total>${metrics.totalChars}</strong>
+              <span>caracteres</span>
+            </div>
+            <div class="meter-stat">
+              <strong data-meter-time>${metrics.duration}</strong>
+              <span>tempo aprox.</span>
+            </div>
+          </div>
+          <div class="meter-sections">
+            ${sections.map(([key, label]) => `
+              <div class="meter-line">
+                <span>${label}</span>
+                <b data-meter-section="${key}">${metrics.bySection[key]}</b>
+              </div>
+            `).join("")}
+          </div>
+        </aside>
+      `;
+    }
+
+    function calculateMetrics(content) {
+      const bySection = {};
+      let totalChars = 0;
+      let totalWords = 0;
+
+      sections.forEach(([key]) => {
+        const text = content[key] || "";
+        const chars = text.length;
+        const words = countWords(text);
+        bySection[key] = chars;
+        totalChars += chars;
+        totalWords += words;
+      });
+
+      return {
+        bySection,
+        totalChars,
+        totalWords,
+        duration: formatDuration(totalWords)
+      };
+    }
+
+    function updateMeterFromFields() {
+      const content = {};
+      document.querySelectorAll("[data-section]").forEach((field) => {
+        content[field.dataset.section] = field.value;
+      });
+
+      const metrics = calculateMetrics(content);
+      const total = document.querySelector("[data-meter-total]");
+      const time = document.querySelector("[data-meter-time]");
+      if (total) total.textContent = metrics.totalChars;
+      if (time) time.textContent = metrics.duration;
+
+      Object.entries(metrics.bySection).forEach(([key, chars]) => {
+        const item = document.querySelector(`[data-meter-section="${key}"]`);
+        if (item) item.textContent = chars;
+      });
+    }
+
+    function countWords(text) {
+      return (text.trim().match(/\S+/g) || []).length;
+    }
+
+    function formatDuration(words) {
+      if (!words) return "0:00";
+      const seconds = Math.max(5, Math.round((words / 150) * 60));
+      const minutes = Math.floor(seconds / 60);
+      const rest = String(seconds % 60).padStart(2, "0");
+      return `${minutes}:${rest}`;
+    }
+
+    function render() {
+      renderTabs();
+      search.value = state.query;
+      renderList();
+    }
+
+    function isWriting() {
+      const active = document.activeElement;
+      return active && (active.matches(".title-input") || active.matches("textarea"));
+    }
+
+    async function createScript() {
+      const script = makeScript();
+      state.scripts.unshift(script);
+      state.activeId = script.id;
+      await saveScript(script);
+      render();
+      showToast("Novo roteiro criado.");
+    }
+
+    function copyScript() {
+      const script = currentScript();
+      if (!script) return;
+      const text = [
+        script.title,
+        "",
+        ...sections.flatMap(([key, label]) => [label.toUpperCase(), script.content?.[key] || "", ""]),
+        "OBSERVAÇÕES",
+        script.notes || ""
+      ].join("\n");
+
+      navigator.clipboard.writeText(text).then(
+        () => showToast("Roteiro copiado."),
+        () => showToast("Nao foi possivel copiar automaticamente.")
+      );
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function escapeAttribute(value) {
+      return escapeHtml(value).replaceAll("\n", " ");
+    }
+
+    function friendlyAuthError(error) {
+      const code = error?.code || "";
+      if (code.includes("invalid-credential") || code.includes("wrong-password")) return "E-mail ou senha incorretos.";
+      if (code.includes("email-already-in-use")) return "Este e-mail ja tem uma conta.";
+      if (code.includes("weak-password")) return "Use uma senha com pelo menos 6 caracteres.";
+      if (code.includes("network-request-failed")) return "Sem conexao com o Firebase.";
+      if (code.includes("operation-not-allowed")) return "Ative este metodo de login no Firebase.";
+      if (code.includes("unauthorized-domain")) return "Adicione o dominio do site nos dominios autorizados do Firebase.";
+      if (code.includes("popup-closed-by-user")) return "Login do Google cancelado.";
+      return "Nao foi possivel concluir. Confira a configuracao do Firebase.";
+    }
+
+    document.getElementById("googleLoginButton").addEventListener("click", async () => {
+      if (!configReady) return;
+      authMessage.textContent = "Abrindo login do Google...";
+      try {
+        await signInWithPopup(auth, googleProvider);
+        authMessage.textContent = "";
+      } catch (error) {
+        authMessage.textContent = friendlyAuthError(error);
+      }
+    });
+
+    document.getElementById("logoutButton").addEventListener("click", () => signOut(auth));
+
+    document.querySelectorAll("[data-type]").forEach((button) => {
+      button.addEventListener("click", () => {
+        state.activeType = button.dataset.type;
+        state.activeId = null;
+        render();
+      });
+    });
+
+    document.querySelectorAll("[data-status]").forEach((button) => {
+      button.addEventListener("click", () => {
+        state.activeStatus = button.dataset.status;
+        state.activeId = null;
+        render();
+      });
+    });
+
+    search.addEventListener("input", (event) => {
+      state.query = event.target.value;
+      renderList();
+    });
+
+    document.getElementById("newScript").addEventListener("click", createScript);
+    document.getElementById("copyScript").addEventListener("click", copyScript);
+
+    render();
+  </script>
+</body>
+</html>
